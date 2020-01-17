@@ -22,7 +22,6 @@ const TodoListItemAddForm = ({ onItemAdd }) => {
             Add
         </button>
     </>);
-
 };
 
 export default TodoListItemAddForm;

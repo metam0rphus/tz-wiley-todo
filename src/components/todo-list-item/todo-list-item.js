@@ -41,7 +41,7 @@ const TodoListItem = ({
                         }
                     }}
                 >
-                    <i className="material-icons">edit</i>
+                    <i className="material-icons">{editMode ? 'forward' : 'edit'}</i>
                 </button>
                 <button
                     className="btn-small waves-effect waves-light todo-list__item-action"

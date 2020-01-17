@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import TodoList from '../todo-list';
 import Header from '../header';
 import TodoListItemAddForm from '../todo-list-item-add-form';
+import { sortByLabelReverse, changeItemProperty } from '../../utils'
 
 function App() {
     const [state, setState] = useState({
         items: [],
         nextItemId: 1
     });
+
+    const sortedItems = state.items.sort(sortByLabelReverse);
 
     const onItemAdd = (label) => {
         setState((state) => {
@@ -39,17 +42,6 @@ function App() {
         });
     };
 
-    const changeItemProperty = (items, id, propName, value) => {
-        const idx = items.findIndex((item) => item.id === id);
-        const item = { ...items[idx], [propName]: value };
-
-        return [
-            ...items.slice(0, idx),
-            item,
-            ...items.slice(idx + 1)
-        ];
-    };
-
     const onChangePropertyCompleted = (id, value) => {
         setState((state) => {
             const items = changeItemProperty(state.items, id, 'completed', value);
@@ -74,7 +66,7 @@ function App() {
         <div className="container">
             <Header title="Todo App"/>
             <TodoList
-                items={state.items}
+                items={sortedItems}
                 onItemDelete={onItemDelete}
                 onChangePropertyCompleted={onChangePropertyCompleted}
                 onChangePropertyLabel={onChangePropertyLabel}
