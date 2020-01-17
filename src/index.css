@@ -12,3 +12,8 @@
 .todo-list__item-action:first-child {
   margin-left: 0;
 }
+
+.todo-list__item_completed .todo-list__item-label {
+  text-decoration: line-through;
+  font-style: italic;
+}

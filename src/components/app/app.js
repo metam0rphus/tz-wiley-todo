@@ -39,12 +39,34 @@ function App() {
         });
     };
 
+    const changeItemProperty = (items, id, propName, value) => {
+        const idx = items.findIndex((item) => item.id === id);
+        const item = { ...items[idx], [propName]: value };
+
+        return [
+            ...items.slice(0, idx),
+            item,
+            ...items.slice(idx + 1)
+        ];
+    };
+
+    const onChangeCompleted = (id, value) => {
+        setState((state) => {
+            const items = changeItemProperty(state.items, id, 'completed', value);
+            return {
+                ...state,
+                items
+            };
+        });
+    };
+
     return (
         <div className="container">
             <Header title="Todo App"/>
             <TodoList
                 items={state.items}
                 onItemDelete={onItemDelete}
+                onChangeCompleted={onChangeCompleted}
             />
             <TodoListItemAddForm onItemAdd={onItemAdd}/>
         </div>
