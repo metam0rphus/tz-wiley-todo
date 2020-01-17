@@ -14,10 +14,8 @@ const TodoListItemAddForm = ({ onItemAdd }) => {
 
                 if(!labelEl) return;
 
-                const value = labelEl.value;
-
                 labelEl.classList.remove("invalid");
-                value ? onItemAdd(value) : labelEl.classList.add("invalid");
+                labelEl.value ? onItemAdd(labelEl.value) : labelEl.classList.add("invalid");
                 labelEl.value = '';
             }}
         >

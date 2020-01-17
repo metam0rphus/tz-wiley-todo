@@ -3,9 +3,11 @@
   display: block;
   clear: both;
 }
+
 .todo-list__item-label {
   line-height: 30px;
 }
+
 .todo-list__item-action {
   margin-left: 10px;
 }
@@ -16,4 +18,10 @@
 .todo-list__item_completed .todo-list__item-label {
   text-decoration: line-through;
   font-style: italic;
+}
+
+.todo-list__item-input_small {
+  height: 2rem !important;
+  margin: 0 !important;
+  width: calc(100% - 200px) !important;
 }

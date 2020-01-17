@@ -1,14 +1,20 @@
 import React from 'react';
 import TodoListItem from '../todo-list-item';
 
-const TodoList = ({ items, onItemDelete, onChangeCompleted }) => {
+const TodoList = ({
+    items,
+    onItemDelete,
+    onChangePropertyCompleted,
+    onChangePropertyLabel
+}) => {
     return items.length ? (<ul className="collection todo-list">
         {items.map((item) => <TodoListItem
             key={item.id}
             label={item.label}
             completed={item.completed}
             onItemDelete={() => onItemDelete(item.id)}
-            onChangeCompleted={() => onChangeCompleted(item.id, !item.completed)}
+            onChangePropertyCompleted={() => onChangePropertyCompleted(item.id, !item.completed)}
+            onChangePropertyLabel={(value) => onChangePropertyLabel(item.id, value)}
         />)}
     </ul>) : "The list is empty!";
 };
@@ -16,7 +22,8 @@ const TodoList = ({ items, onItemDelete, onChangeCompleted }) => {
 TodoList.defaultProps = {
     items: [],
     onItemDelete: () => {},
-    onChangeCompleted: () => {}
+    onChangePropertyCompleted: () => {},
+    onChangePropertyLabel: () => {}
 };
 
 export default TodoList;

@@ -50,9 +50,19 @@ function App() {
         ];
     };
 
-    const onChangeCompleted = (id, value) => {
+    const onChangePropertyCompleted = (id, value) => {
         setState((state) => {
             const items = changeItemProperty(state.items, id, 'completed', value);
+            return {
+                ...state,
+                items
+            };
+        });
+    };
+
+    const onChangePropertyLabel = (id, value) => {
+        setState((state) => {
+            const items = changeItemProperty(state.items, id, 'label', value);
             return {
                 ...state,
                 items
@@ -66,7 +76,8 @@ function App() {
             <TodoList
                 items={state.items}
                 onItemDelete={onItemDelete}
-                onChangeCompleted={onChangeCompleted}
+                onChangePropertyCompleted={onChangePropertyCompleted}
+                onChangePropertyLabel={onChangePropertyLabel}
             />
             <TodoListItemAddForm onItemAdd={onItemAdd}/>
         </div>
