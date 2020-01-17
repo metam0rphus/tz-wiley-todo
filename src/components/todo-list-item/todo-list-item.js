@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoListItem = ({ label }) => {
+const TodoListItem = ({ label, onItemDelete }) => {
     return !!(label) && (
         <li className="collection-item todo-list__item">
             <span className="todo-list__item-label">{label}</span>
@@ -11,7 +11,10 @@ const TodoListItem = ({ label }) => {
                 <button className="btn-small waves-effect waves-light todo-list__item-action">
                     <i className="material-icons">edit</i>
                 </button>
-                <button className="btn-small waves-effect waves-light todo-list__item-action">
+                <button
+                    className="btn-small waves-effect waves-light todo-list__item-action"
+                    onClick={onItemDelete}
+                >
                     <i className="material-icons">delete</i>
                 </button>
             </div>
