@@ -1,0 +1,14 @@
+.todo-list__item::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.todo-list__item-label {
+  line-height: 30px;
+}
+.todo-list__item-action {
+  margin-left: 10px;
+}
+.todo-list__item-action:first-child {
+  margin-left: 0;
+}
