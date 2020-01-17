@@ -16,3 +16,5 @@ export const changeItemProperty = (items, id, propName, value) => {
         ...items.slice(idx + 1)
     ];
 };
+
+export const getNextItemId = (items) => Math.max(...items.map((item) => item.id)) + 1;
